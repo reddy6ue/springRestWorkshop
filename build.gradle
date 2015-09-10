@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://maven.springframework.org/release'
+        }
+        configurations {
+            compile.exclude module: 'org.springframework.boot:spring-boot-starter-websocket:1.2.5.RELEASE'
+            compile.exclude module: 'org.springframework.boot:spring-boot-starter-tomcat:1.2.5.RELEASE'
+        }
+    }
+}
+
+group 'life.plank'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.2.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-undertow:1.2.5.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
+    compile 'org.hsqldb:hsqldb:2.3.3'
+    testCompile 'junit:junit:4.12'
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.6'
+}

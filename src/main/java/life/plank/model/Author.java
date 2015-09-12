@@ -58,6 +58,7 @@ public class Author extends AbstractEntity{
         this.middleName = middleName;
     }
 
+    @ManyToMany(mappedBy = "authors")
     public List<Book> getBooks() {
         return books;
     }

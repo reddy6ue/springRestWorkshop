@@ -1,28 +1,39 @@
 package life.plank.model;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+import java.util.List;
+
 /**
  * Created by Praneeth on 8/25/2015.
  */
+@Entity
 public class Library extends AbstractEntity {
 
-    private Book[] books;
+    @Transient
+    private List<Book> books;
 
-    private Student[] students;
+    @Transient
+    private List<Student> students;
 
-    public Book[] getBooks() {
+    @Transient
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Book[] books) {
+    @Transient
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 
-    public Student[] getStudents() {
+    @Transient
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(Student[] students) {
+    @Transient
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 }

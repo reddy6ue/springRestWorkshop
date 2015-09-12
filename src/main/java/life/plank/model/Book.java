@@ -20,6 +20,9 @@ public class Book extends AbstractEntity {
     @ManyToMany
     private List<Author> authors;
 
+//    @ManyToMany(mappedBy = "books")
+//    private List<Student> students;
+
     @NotNull
     private int yearPublished;
 
@@ -57,4 +60,8 @@ public class Book extends AbstractEntity {
     public void setEdition(int edition) {
         this.edition = edition;
     }
+
+//    public List<Student> getStudents() { return students; }
+//
+//    public void setStudents(List<Student> students) {students = students; }
 }

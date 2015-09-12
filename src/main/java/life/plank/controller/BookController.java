@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 /**
@@ -61,7 +62,8 @@ public class BookController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBook(@PathVariable("id") int id) {
+    @Transactional(value = Transactional.TxType.REQUIRES_NEW)
+    public void deleteBook(@PathVariable("id") Long id) {
         bookRepository.delete(id);
     }
 }

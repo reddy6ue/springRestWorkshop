@@ -12,7 +12,7 @@ import java.util.Iterator;
  * Created by Praneeth on 9/8/2015.
  */
 @Repository
-public interface BookRepository extends CrudRepository<Book, Integer> {
+public interface BookRepository extends CrudRepository<Book, Long> {
 
     public Iterable<Book> findByTitle(@Param("title") String title);
     public Iterable<Book> findByYearPublished(@Param("yearPublished") Integer yearPublished);
